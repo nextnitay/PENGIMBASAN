@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pengimbasan Digitalisasi Pendidikan</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600&display=swap">
+<style>
+:root{--bg:#0e1a2b;--cd:#16273d;--cd2:#1d3350;--tx:#e9f0f8;--mu:#9db0c6;--a:#3fd0c0;--b:#f5b942;--ln:#2c4565;--sh:0 8px 28px rgba(0,0,0,.35);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+:root[data-theme=light]{--bg:#eef4fa;--cd:#fff;--cd2:#e3edf7;--tx:#14263b;--mu:#566a80;--a:#0a8f84;--b:#b97800;--ln:#c4d4e4;--sh:0 8px 24px rgba(30,60,100,.12);color-scheme:light}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:17px/1.6 Figtree,system-ui,sans-serif;transition:background .3s,color .3s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,h3{font-family:'Bricolage Grotesque',Figtree,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--ln)}
+.bar{max-width:1100px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem;margin-right:auto}
+.tabs{display:flex;gap:6px;background:var(--cd);padding:4px;border-radius:99px}
+.tabs button,.tg{border:0;background:none;color:var(--mu);font:600 .95rem Figtree,sans-serif;padding:8px 18px;border-radius:99px;cursor:pointer}
+.tabs button.on{background:var(--a);color:#06231f}
+.tg{background:var(--cd);border:1px solid var(--ln);color:var(--tx)}
+.chips{max-width:1100px;margin:auto;padding:0 16px 10px;display:flex;gap:8px;overflow-x:auto}
+.chips button{flex:none;border:1px solid var(--ln);background:none;color:var(--mu);border-radius:99px;padding:5px 14px;font:600 .85rem Figtree,sans-serif;cursor:pointer}
+.chips button.on{color:var(--tx);border-color:var(--a)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--b);outline-offset:2px}
+main{max-width:1100px;margin:auto;padding:24px 16px 80px}
+.page{display:none}.page.on{display:block;animation:in .45s ease}
+@keyframes in{from{opacity:0;transform:translateY(10px)}}
+.hero{padding:28px 0 8px}
+.hero h1{font-size:clamp(2rem,6vw,3.6rem);max-width:16ch}
+.hero p{color:var(--mu);max-width:56ch;font-size:1.1rem}
+.card{background:var(--cd);border:1px solid var(--ln);border-radius:22px;padding:clamp(18px,4vw,36px);margin:26px 0;box-shadow:var(--sh)}
+.card h2{font-size:clamp(1.5rem,4vw,2.1rem);margin-bottom:8px}
+.card h3{font-size:1.2rem;margin:26px 0 6px;color:var(--b)}
+.lead{color:var(--mu);margin:0 0 14px;max-width:70ch}
+.g{position:relative;width:100%;max-width:640px;margin:18px auto 8px;aspect-ratio:var(--ar,1/.85)}
+.g svg{position:absolute;inset:0;width:100%;height:100%}
+.g line{stroke:var(--a);stroke-width:3;stroke-dasharray:7 7;vector-effect:non-scaling-stroke;animation:fl 1.2s linear infinite;opacity:.8}
+.g.cab line{stroke-width:4;animation-duration:.6s}
+@keyframes fl{to{stroke-dashoffset:-14}}
+.nd{position:absolute;transform:translate(-50%,-50%);background:none;border:0;color:var(--tx);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font:600 .85rem/1.2 Figtree,sans-serif;max-width:96px;text-align:center;padding:0}
+.nd i{font-style:normal;font-size:1.9rem;width:64px;height:64px;display:grid;place-items:center;border-radius:50%;background:var(--cd2);border:2px solid var(--ln);transition:.25s}
+.nd:hover i{transform:scale(1.08)}
+.nd.on i{border-color:var(--b);box-shadow:0 0 0 6px color-mix(in srgb,var(--b) 25%,transparent),0 0 24px var(--b);transform:scale(1.14)}
+.ec{position:absolute;transform:translate(-50%,-50%);background:var(--bg);border:1px solid var(--a);color:var(--a);font:600 .72rem Figtree,sans-serif;padding:2px 9px;border-radius:99px;white-space:nowrap}
+.bub{position:relative;max-width:640px;margin:14px auto 0;background:var(--cd2);border:1px solid var(--b);border-radius:14px;padding:14px 18px;min-height:56px}
+.bub::before{content:"";position:absolute;top:-8px;left:50%;width:14px;height:14px;background:var(--cd2);border-left:1px solid var(--b);border-top:1px solid var(--b);transform:translateX(-50%) rotate(45deg)}
+.bub.hint{border-color:var(--ln);color:var(--mu);text-align:center}
+.bub.hint::before{display:none}
+.fx{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:12px}
+.fx span{background:var(--cd2);border:1px solid var(--a);border-radius:12px;padding:6px 14px;font-weight:600;font-size:.9rem}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;padding:11px 18px;border-radius:12px;background:var(--a);color:#06231f;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.o{background:none;border:1.5px solid var(--a);color:var(--tx)}
+.dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:10px}
+.dl a{text-align:center;text-decoration:none;background:var(--cd2);border:1px solid var(--ln);border-radius:14px;padding:14px 8px;font-weight:600;transition:.2s}
+.dl a:hover{border-color:var(--a)}
+.dl a i{display:block;font-size:1.8rem;font-style:normal}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+.feat button{background:var(--cd2);border:2px solid var(--ln);color:var(--tx);border-radius:16px;padding:16px 6px;cursor:pointer;font:600 .95rem Figtree,sans-serif;transition:.25s}
+.feat button i{display:block;font-style:normal;font-size:2rem;transition:.25s}
+.feat button:hover i{transform:scale(1.2) rotate(-6deg)}
+.feat button.on{border-color:var(--a);transform:translateY(-3px)}
+.fd{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:18px;align-items:center;margin-top:16px;background:var(--cd2);border-radius:16px;padding:16px}
+.fd svg{width:100%;background:var(--bg);border-radius:10px}
+.dr{fill:none;stroke:var(--a);stroke-width:3;stroke-linecap:round;stroke-dasharray:220;stroke-dashoffset:220;animation:dr 3s ease-in-out infinite}
+.dr.b{stroke:var(--b);animation-delay:.4s}
+@keyframes dr{60%,100%{stroke-dashoffset:0}}
+.flow{display:flex;align-items:flex-start;list-style:none;padding:0;margin:20px 0 6px;gap:0}
+.flow li{flex:1;display:flex;align-items:flex-start;min-width:0}
+.flow .st{flex:none;width:112px;margin:0;background:none;border:0;color:var(--tx);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;font:600 .88rem/1.2 Figtree,sans-serif;text-align:center}
+.flow .st i{font-style:normal;font-size:1.7rem;width:64px;height:64px;display:grid;place-items:center;border-radius:50%;background:var(--cd2);border:2px solid var(--ln);transition:.25s}
+.flow .st.on i{border-color:var(--b);box-shadow:0 0 0 6px color-mix(in srgb,var(--b) 25%,transparent);transform:scale(1.1)}
+.cn{flex:1;height:3px;margin-top:31px;background:linear-gradient(90deg,var(--ln) 0 40%,var(--a) 50%,var(--ln) 60%);background-size:200% 100%;animation:sh 2s linear infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.dev{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.dev button{background:var(--cd2);border:2px solid var(--ln);color:var(--tx);border-radius:16px;padding:14px 6px;cursor:pointer;font:600 .9rem Figtree,sans-serif;transition:.25s}
+.dev button i{display:block;font-style:normal;font-size:2.2rem}
+.dev button.on{border-color:var(--a)}
+.tips{margin:14px 0 0;padding:14px 18px 14px 36px;background:var(--cd2);border-radius:14px}
+.sch{display:flex;gap:8px;margin:10px 0}
+.sch button{flex:1;border:2px solid var(--ln);background:none;color:var(--tx);border-radius:14px;padding:10px 4px;cursor:pointer;font:600 .95rem Figtree,sans-serif}
+.sch button.on{border-color:var(--b);background:var(--cd2)}
+.tl{list-style:none;margin:12px 0 0;padding:0 0 0 22px;border-left:3px solid var(--a)}
+.tl li{position:relative;margin:0 0 10px}
+.tl li::before{content:"";position:absolute;left:-30px;top:12px;width:13px;height:13px;border-radius:50%;background:var(--a)}
+.tl label{display:flex;gap:10px;align-items:center;background:var(--cd2);padding:10px 14px;border-radius:12px;cursor:pointer}
+.tl input{width:20px;height:20px;accent-color:var(--a)}
+.tl input:checked+span{text-decoration:line-through;color:var(--mu)}
+.pg{height:8px;background:var(--cd2);border-radius:9px;overflow:hidden}.pg div{height:100%;width:0;background:var(--b);transition:width .3s}
+.ex{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:14px}
+.ex a{text-decoration:none;background:var(--cd2);border:1px solid var(--ln);border-radius:16px;padding:18px;transition:.25s;display:block}
+.ex a:hover{transform:translateY(-4px);border-color:var(--a)}
+.ex i{font-style:normal;font-size:1.8rem}.ex b{display:block;margin-top:4px}.ex small{color:var(--mu)}
+footer{text-align:center;color:var(--mu);padding:20px;font-size:.9rem}
+@media(max-width:860px){.feat{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){
+ body{font-size:16px}
+ .feat{grid-template-columns:repeat(2,1fr);gap:8px}
+ .fd{grid-template-columns:1fr}
+ .nd i{width:54px;height:54px;font-size:1.6rem}.nd{font-size:.76rem;max-width:80px}
+ .ec{font-size:.64rem;padding:2px 6px}
+ .flow{flex-direction:column;align-items:stretch}
+ .flow li{flex-direction:column;align-items:center}
+ .cn{width:3px;height:26px;margin:0;background:linear-gradient(180deg,var(--ln) 0 40%,var(--a) 50%,var(--ln) 60%);background-size:100% 200%;animation-name:shv}
+ @keyframes shv{to{background-position:0 -200%}}
+ .sch button{font-size:.85rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.dr{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<header>
+ <div class="bar">
+  <div class="brand">🎓 Digitalisasi Pendidikan</div>
+  <nav class="tabs" aria-label="Navigasi utama">
+   <button data-p="pengimbasan" class="on">Pengimbasan</button>
+   <button data-p="mpi">MPI</button>
+  </nav>
+  <button class="tg" id="tg" aria-label="Ganti mode tampilan">☀️ Basic</button>
+ </div>
+ <div class="chips" id="chips"></div>
+</header>
+<main>
+<section class="page on" id="pengimbasan">
+ <div class="hero"><h1>Digitalisasi</h1>
+    <div class="brand">🎓 Komang Nitay Prasaddas S.Kom</div>
+    <p>Cara terbaik untuk mati dalam keadaan bernafas adalah dengan berhenti mengikuti perkembangan zaman </p>
+</div>
+
+ <article class="card" id="c1" data-t="Alat Digital">
+  <h2>🧰 Pengenalan Alat Digitalisasi</h2>
+  <p class="lead">Kementerian Pendidikan memfasilitasi tiga alat digital agar guru dan siswa dapat berinteraksi lebih aktif serta terbiasa menggunakan teknologi dalam kegiatan pendidikan.</p>
+  <div class="g" id="g1"></div><div class="bub hint" id="b-g1">Klik salah satu perangkat untuk melihat definisinya.</div>
+ </article>
+
+ <article class="card" id="c2" data-t="Menghubungkan">
+  <h2>🔌 Cara Menghubungkan Alat Digitalisasi</h2>
+  <p class="lead">Perangkat yang difasilitasi dapat saling terhubung untuk melengkapi kebutuhan pendidikan. Ponsel pribadi juga dapat dihubungkan dengan perangkat tersebut.</p>
+  <h3>A. Menghubungkan Hardisk/SSD</h3>
+  <p class="lead">Dengan menghubungkan Hardisk/SSD, pengguna dapat membaca file di dalamnya dan memindahkan data dari komputer maupun perangkat lain, seperti menghubungkan flashdisk.</p>
+  <div class="g cab" id="g2a" style="--ar:1/.7"></div>
+  <div class="fx"><span>🔗 USB to Type-C</span><span>🔗 Type-C to Type-C</span></div>
+  <div class="bub hint" id="b-g2a">Klik perangkat untuk melihat penjelasan koneksinya.</div>
+
+  <h3>B. Menghubungkan PID ke Perangkat Lain</h3>
+  <p class="lead">PID dapat menampilkan atau memproyeksikan layar perangkat lain agar terlihat oleh seluruh siswa. Berbeda dengan proyektor biasa, PID tetap menyediakan fungsi interaktif pada metode proyeksi yang mendukungnya.</p>
+  <div class="g cab" id="g2b" style="--ar:1/.95"></div>
+  <div class="bub hint" id="b-g2b">Klik node untuk melihat penjelasan metode proyeksi.</div>
+
+  <h3>Video tutorial</h3>
+  <div class="btns">
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/WjoZFnbMc_s?si=HUIC-TXZzzlGfOzq">▶ Menggunakan kabel HDMI</a>
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/JFf3MLAHrng?si=0GRGJrQW_Y_A4wLs">▶ Tanpa kabel (Miracast)</a>
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/1SH_oIVNw1c?si=pXoc70xqgMWeMih7">▶ Tanpa kabel (Aplikasi)</a>
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/4roZQGjvsPU?si=Cy9iFDzkeT_BoZg2">▶ Menggunakan HP</a>
+  </div>
+  <h3>Unduh aplikasi proyeksi</h3>
+  <div class="dl">
+   <a target="_blank" rel="noopener" href="https://hisyxs.hisense.com/download/overseas/ScreenShare_for_Android.apk"><i>🤖</i>Android</a>
+   <a target="_blank" rel="noopener" href="https://apps.apple.com/in/app/hiscreenshare/id1461435143"><i>📱</i>iPhone</a>
+   <a target="_blank" rel="noopener" href="https://hisyxs.hisense.com/download/overseas/ScreenShare_for_windows.exe"><i>🪟</i>Windows</a>
+   <a target="_blank" rel="noopener" href="https://hisyxs.hisense.com/download/overseas/ScreenShare_for_Mac.pkg"><i>🍎</i>Mac</a>
+  </div>
+ </article>
+
+ <article class="card" id="c3" data-t="Fitur PID">
+  <h2>🖐️ Dasar Penggunaan PID yang Interaktif</h2>
+  <p class="lead">Enam fitur umum PID. Pilih fitur untuk melihat simulasinya.</p>
+  <div class="feat" id="feat"></div>
+  <div class="fd" id="fd"></div>
+  <div class="btns">
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/eX5BPN_8iUQ?si=nIBe1qw-wSZ_HHV1">▶ Video tutorial 1</a>
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/OhPLGsc4Eb0?si=zaREfmiGx0x3GGDx">▶ Video tutorial 2</a>
+  </div>
+ </article>
+
+ <article class="card" id="c4" data-t="Pemanfaatan AI">
+  <h2>🤖 Pemanfaatan AI</h2>
+  <p class="lead">Rancangan, ide, dan imajinasi berasal dari manusia. AI membantu proses eksekusi dan pekerjaan teknis dalam dunia pendidikan.</p>
+  <h3>A. Pembuatan Dokumen Pendidikan (RPPM/Modul Ajar)</h3>
+  <p class="lead">AI membantu menyusun dokumen pendidikan berdasarkan template dan referensi yang tersedia.</p>
+  <div class="g" id="g4" style="--ar:1/.85"></div><div class="bub hint" id="b-g4">Klik Template, Referensi, atau AI untuk melihat perannya.</div>
+  <div class="btns">
+   <a class="btn" target="_blank" rel="noopener" href="https://docs.google.com/document/d/1dyhM4X4b9-o0ecpnhntY07-CJCO7CWzH/export?format=docx">⬇ Download Template RPPM</a>
+   <a class="btn o" target="_blank" rel="noopener" href="https://kurikulum.kemendikdasmen.go.id/panduan-mapel">📚 Buku Panduan Mata Pelajaran</a>
+  </div>
+  <h3>B. Pembuatan MPI (Media Pembelajaran Interaktif)</h3>
+  <p class="lead">MPI membuat proses belajar mengajar lebih mudah, menarik, dan interaktif sehingga diharapkan meningkatkan pemahaman peserta didik.</p>
+  <ol class="flow" data-flow="f4"></ol><div class="bub hint" id="b-f4">Klik tahapan untuk melihat penjelasannya.</div>
+  <div class="btns">
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/fJygzNe4xdE?si=ryqzp5-XIPhA336M">▶ Video referensi MPI 1</a>
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/ro5rbPGEYJM?si=g8JTMp8_jQkS7ooQ">▶ Video referensi MPI 2</a>
+  </div>
+ </article>
+
+ <article class="card" id="c5" data-t="Perawatan">
+  <h2>🧼 Perawatan Perangkat Digital</h2>
+  <p class="lead">Perawatan menjaga perangkat tetap berfungsi baik, awet, dan siap digunakan untuk pembelajaran.</p>
+  <h3>A. Pembersihan Perangkat</h3>
+  <div class="dev" id="dev"></div><ul class="tips" id="tips"></ul>
+  <h3>B. Penjadwalan Perawatan</h3>
+  <p class="lead">Jadwal berkala membantu memantau kondisi perangkat dan mencegah kerusakan sejak dini. Centang kegiatan yang sudah dilakukan.</p>
+  <div class="sch" id="sch"></div>
+  <div class="pg"><div id="pgb"></div></div>
+  <ul class="tl" id="tl"></ul>
+ </article>
+</section>
+
+<section class="page" id="mpi">
+ <div class="hero"><h1>Media Pembelajaran Interaktif (MPI)</h1><p>Media digital yang dirancang membantu pembelajaran melalui kombinasi materi, visualisasi, animasi, simulasi, dan interaksi pengguna.</p></div>
+ <article class="card" data-t="Alur MPI">
+  <h2>🧭 Alur Pembuatan MPI</h2>
+  <p class="lead">MPI dapat dikembangkan dengan bantuan AI untuk mempercepat proses teknis, tetapi konsep, tujuan pembelajaran, struktur materi, dan evaluasi tetap dirancang berdasarkan kebutuhan pembelajaran.</p>
+  <ol class="flow" data-flow="f5"></ol><div class="bub hint" id="b-f5">Klik tahapan untuk melihat penjelasannya.</div>
+  <div class="btns">
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/fJygzNe4xdE?si=ryqzp5-XIPhA336M">▶ Video referensi 1</a>
+   <a class="btn o" target="_blank" rel="noopener" href="https://youtu.be/ro5rbPGEYJM?si=g8JTMp8_jQkS7ooQ">▶ Video referensi 2</a>
+  </div>
+ </article>
+ <article class="card" data-t="Contoh MPI">
+  <h2>🌐 Contoh MPI yang Sudah Jadi</h2>
+  <p class="lead">Buka contoh untuk melihat hasil akhirnya (tab baru).</p>
+  <div class="ex" id="ex"></div>
+ </article>
+</section>
+</main>
+<footer>Media presentasi pengimbasan digitalisasi pendidikan</footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+/* ---------- tema ---------- */
+const root=document.documentElement,tg=$('#tg');
+function setTheme(t){root.dataset.theme=t;tg.textContent=t==='dark'?'☀️ Basic':'🌙 Night';try{localStorage.setItem('th',t)}catch(e){}}
+try{const s=localStorage.getItem('th');if(s)setTheme(s)}catch(e){}
+tg.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+
+/* ---------- graph / tree ---------- */
+function graph(id,{nodes,edges,chips=[]}){
+ const h=$('#'+id),b=$('#b-'+id),P=Object.fromEntries(nodes.map(n=>[n.id,n]));
+ h.innerHTML='<svg viewBox="0 0 100 100" preserveAspectRatio="none">'+edges.map(([a,c])=>`<line x1="${P[a].x}" y1="${P[a].y}" x2="${P[c].x}" y2="${P[c].y}"/>`).join('')+'</svg>'+
+ edges.filter(e=>e[2]).map(([a,c,l])=>`<span class="ec" style="left:${(P[a].x+P[c].x)/2}%;top:${(P[a].y+P[c].y)/2}%">${l}</span>`).join('')+
+ nodes.map(n=>`<button class="nd" data-id="${n.id}" style="left:${n.x}%;top:${n.y}%"><i>${n.i}</i>${n.t}</button>`).join('');
+ let cur=null;
+ h.querySelectorAll('.nd').forEach(btn=>btn.onclick=()=>{
+  const n=P[btn.dataset.id];h.querySelectorAll('.nd').forEach(x=>x.classList.remove('on'));
+  if(cur===n.id){cur=null;b.className='bub hint';b.textContent='Klik lagi untuk memilih perangkat lain.';return}
+  cur=n.id;btn.classList.add('on');b.className='bub';b.innerHTML=`<b>${n.t}</b><br>${n.d}`;
+ });
+}
+graph('g1',{nodes:[
+ {id:'p',i:'🖥️',t:'PID (Papan Interaktif Digital)',x:50,y:15,d:'Papan digital yang menjadi media pembelajaran interaktif.'},
+ {id:'k',i:'💻',t:'Komputer/Laptop',x:17,y:78,d:'Media untuk merancang dan menyusun berbagai kebutuhan yang mendukung proses pendidikan.'},
+ {id:'h',i:'💾',t:'Hardisk/SSD',x:83,y:78,d:'Media penyimpanan dan pengarsipan berkas pendidikan secara digital yang praktis dan mudah dibawa.'}],
+ edges:[['p','k'],['k','h'],['h','p']]});
+graph('g2a',{nodes:[
+ {id:'h',i:'💾',t:'Hardisk/SSD',x:50,y:16,d:'Media penyimpanan eksternal. Dihubungkan seperti flashdisk menggunakan kabel transfer data.'},
+ {id:'k',i:'💻',t:'Komputer/Laptop',x:22,y:78,d:'Hardisk/SSD dihubungkan ke komputer dengan kabel transfer data: USB to Type-C atau Type-C to Type-C.'},
+ {id:'p',i:'🖥️',t:'PID',x:78,y:78,d:'Hardisk/SSD juga dapat dihubungkan ke PID menggunakan kabel transfer data seperti pada komputer.'}],
+ edges:[['h','k','USB to Type-C'],['h','p','Type-C to Type-C']]});
+graph('g2b',{nodes:[
+ {id:'p',i:'🖥️',t:'PID',x:50,y:10,d:'Dapat menampilkan atau memproyeksikan layar perangkat lain sehingga terlihat oleh seluruh siswa di kelas.'},
+ {id:'k',i:'💻',t:'Komputer/ Laptop',x:27,y:42,d:'Tampilan komputer dapat diproyeksikan ke layar PID melalui kabel HDMI atau jaringan internet.'},
+ {id:'s',i:'📱',t:'HP/ Smartphone',x:80,y:42,d:'Tampilan ponsel dapat diproyeksikan ke PID, namun kurang direkomendasikan karena perbedaan bentuk dan rasio layar dapat membuat tampilan kurang maksimal.'},
+ {id:'hd',i:'🔌',t:'Kabel HDMI',x:12,y:80,d:'Menghubungkan port HDMI komputer dan PID. Keterbatasan: fungsi interaktif PID tidak dapat digunakan seperti pada metode proyeksi nirkabel yang mendukung interaksi.'},
+ {id:'n1',i:'🌐',t:'Jaringan Internet',x:42,y:80,d:'Sangat direkomendasikan. PID tetap dapat mempertahankan fungsi interaktifnya pada metode yang didukung perangkat.'},
+ {id:'n2',i:'🌐',t:'Jaringan Internet',x:80,y:80,d:'Proyeksi layar HP melalui jaringan internet. Kurang direkomendasikan karena rasio layar ponsel berbeda dengan PID.'}],
+ edges:[['p','k'],['p','s'],['k','hd'],['k','n1'],['s','n2']]});
+graph('g4',{nodes:[
+ {id:'t',i:'📄',t:'Template',x:50,y:15,d:'Menjadi acuan struktur dokumen.'},
+ {id:'r',i:'📚',t:'Referensi',x:17,y:78,d:'Menjadi sumber informasi dan materi.'},
+ {id:'a',i:'🤖',t:'AI',x:83,y:78,d:'Membantu mengolah informasi dan menyusun dokumen berdasarkan template serta referensi.'}],
+ edges:[['t','r','struktur'],['r','a','materi'],['t','a','susun']]});
+
+/* ---------- alur MPI ---------- */
+const steps=[
+ ['🗂️','Struktur','Menentukan susunan materi, navigasi, halaman, dan komponen yang diperlukan.'],
+ ['🤖','Generate AI','Memanfaatkan AI untuk menerjemahkan struktur menjadi rancangan awal atau kerangka aplikasi.'],
+ ['🎨','Rancangan UI','Meninjau, mengatur, dan menyempurnakan tampilan serta interaksi MPI.'],
+ ['⚙️','Generate AI','Memanfaatkan AI untuk membantu implementasi dan pengembangan rancangan menjadi aplikasi yang berfungsi.'],
+ ['🚀','Publish','Melakukan pemeriksaan akhir dan memublikasikan MPI agar dapat digunakan peserta didik.']];
+$$('[data-flow]').forEach(ol=>{
+ const b=$('#b-'+ol.dataset.flow);
+ ol.innerHTML=steps.map((s,i)=>`<li><button class="st" data-i="${i}"><i>${s[0]}</i>${s[1]}</button>${i<4?'<div class="cn"></div>':''}</li>`).join('');
+ ol.querySelectorAll('.st').forEach(btn=>btn.onclick=()=>{
+  ol.querySelectorAll('.st').forEach(x=>x.classList.remove('on'));btn.classList.add('on');
+  const s=steps[btn.dataset.i];b.className='bub';b.innerHTML=`<b>${s[1]}</b><br>${s[2]}`;
+ });
+});
+
+/* ---------- fitur PID ---------- */
+const S=(c)=>`<svg viewBox="0 0 120 70" aria-hidden="true">${c}</svg>`;
+const lines='<path d="M12 18h50M12 28h70M12 38h40" stroke="var(--mu)" stroke-width="3" stroke-linecap="round"/>';
+const F=[
+ ['✍️','Anotasi','Menulis atau memberi catatan langsung pada layar PID.',S(lines+'<path class="dr" d="M10 58Q30 40 50 54T100 44"/>')],
+ ['🔦','Sorot','Menyoroti bagian tertentu pada layar, seperti mengarahkan cahaya senter ke suatu objek.',S(lines+'<mask id="m"><rect width="120" height="70" fill="#fff"/><circle r="17" cy="28" fill="#000"><animate attributeName="cx" values="25;95;25" dur="4s" repeatCount="indefinite"/></circle></mask><rect width="120" height="70" mask="url(#m)" fill="rgba(0,0,0,.72)"/>')],
+ ['🪟','Split Layar','Membagi layar menjadi dua bagian sehingga dua tampilan atau tab dapat dibuka sekaligus.',S('<rect x="6" y="8" width="52" height="54" rx="4" fill="var(--cd2)" stroke="var(--a)" stroke-width="2"/><rect x="62" y="8" width="52" height="54" rx="4" fill="var(--cd2)" stroke="var(--b)" stroke-width="2"/><path class="dr" d="M14 24h36M14 36h26"/><path class="dr b" d="M70 24h36M70 36h26"/>')],
+ ['⏱️','Timer','Penghitung waktu yang dapat dimanfaatkan dalam kegiatan belajar mengajar.',S('<circle cx="60" cy="35" r="26" fill="none" stroke="var(--ln)" stroke-width="6"/><circle cx="60" cy="35" r="26" fill="none" stroke="var(--b)" stroke-width="6" stroke-linecap="round" stroke-dasharray="164" transform="rotate(-90 60 35)"><animate attributeName="stroke-dashoffset" values="0;164" dur="5s" repeatCount="indefinite"/></circle><path d="M60 35V20" stroke="var(--tx)" stroke-width="3" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 60 35" to="360 60 35" dur="5s" repeatCount="indefinite"/></path>')],
+ ['🗒️','Papan Tulis','Aplikasi bawaan PID berupa papan tulis digital yang dapat digunakan untuk menulis.',S('<rect x="6" y="6" width="108" height="58" rx="5" fill="#1f5a45"/><path class="dr" style="stroke:#fff" d="M16 24h50M16 38q20-10 40 0t40-4M16 52h30"/>')],
+ ['👥','Banyak Penulis','Lebih dari satu pengguna dapat berinteraksi dan menulis pada layar secara bersamaan.',S('<path class="dr" d="M10 20Q35 5 60 25T108 14"/><path class="dr b" d="M10 54Q40 36 70 52T108 40"/><text x="14" y="12" font-size="9">👤</text><text x="100" y="66" font-size="9">👤</text>')]];
+$('#feat').innerHTML=F.map((f,i)=>`<button data-i="${i}"><i>${f[0]}</i>${f[1]}</button>`).join('');
+function showF(i){$$('#feat button').forEach((b,j)=>b.classList.toggle('on',i==j));const f=F[i];$('#fd').innerHTML=f[3]+`<div><h3 style="margin-top:0">${f[1]}</h3><p style="margin:6px 0 0">${f[2]}</p></div>`}
+$$('#feat button').forEach(b=>b.onclick=()=>showF(b.dataset.i));showF(0);
+
+/* ---------- perawatan ---------- */
+const D=[
+ ['🖥️','PID & Monitor',['Bersihkan layar menggunakan kain microfiber.','Pastikan perangkat dalam kondisi mati saat dibersihkan.','Hindari cairan pembersih langsung pada perangkat.']],
+ ['💻','Komputer/Laptop',['Bersihkan keyboard, mouse, dan bagian luar perangkat komputer.','Pastikan perangkat dalam kondisi mati saat dibersihkan.','Jaga dari debu, air, dan kotoran.']],
+ ['💾','Hardisk/SSD',['Jaga dari debu, air, dan kotoran.','Simpan di area penyimpanan yang bersih.']],
+ ['🗄️','Area Penyimpanan',['Jaga kebersihan area penyimpanan perangkat.','Lindungi perangkat dari debu, air, dan kotoran.']]];
+$('#dev').innerHTML=D.map((d,i)=>`<button data-i="${i}"><i>${d[0]}</i>${d[1]}</button>`).join('');
+function showD(i){$$('#dev button').forEach((b,j)=>b.classList.toggle('on',i==j));$('#tips').innerHTML=D[i][2].map(t=>`<li>${t}</li>`).join('')}
+$$('#dev button').forEach(b=>b.onclick=()=>showD(b.dataset.i));showD(0);
+const J={Harian:['🗓️',['Periksa kondisi perangkat','Periksa kebersihan area penggunaan']],
+ Mingguan:['🧹',['Bersihkan perangkat','Periksa kabel dan konektor']],
+ Bulanan:['📋',['Periksa fungsi perangkat','Periksa kondisi penyimpanan','Periksa kelengkapan inventaris']]};
+const chk={};
+function showJ(k){
+ $$('#sch button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+ $('#tl').innerHTML=J[k][1].map((t,i)=>`<li><label><input type="checkbox" data-i="${i}" ${chk[k+i]?'checked':''}><span>${J[k][0]} ${t}</span></label></li>`).join('');
+ const up=()=>{const c=$$('#tl input');$('#pgb').style.width=100*c.filter(x=>x.checked).length/c.length+'%'};
+ $$('#tl input').forEach(x=>x.onchange=()=>{chk[k+x.dataset.i]=x.checked;up()});up();
+}
+$('#sch').innerHTML=Object.keys(J).map(k=>`<button data-k="${k}">${J[k][0]} ${k}</button>`).join('');
+$$('#sch button').forEach(b=>b.onclick=()=>showJ(b.dataset.k));showJ('Harian');
+
+/* ---------- contoh MPI ---------- */
+const E=[['MPI-7-Ganjil','MPI Kelas 7 Ganjil','📘'],['MPI-8-Ganjil','MPI Kelas 8 Ganjil','📗'],['MPI-9-Ganjil','MPI Kelas 9 Ganjil','📙'],['MPI-7-GAMES','MPI 7 Games','🎮'],['MPI-9-EXPLORASI-DATA','MPI 9 Eksplorasi Data','📊'],['MPI-8-Bindo-karya-ilmiah','MPI 8 Bahasa Indonesia: Karya Ilmiah','📝']];
+$('#ex').innerHTML=E.map(e=>`<a target="_blank" rel="noopener" href="https://nextnitay.github.io/${e[0]}/"><i>${e[2]}</i><b>${e[1]}</b><small>Buka contoh di tab baru</small></a>`).join('');
+
+/* ---------- navigasi halaman + chip ---------- */
+function go(p){
+ if(!document.getElementById(p))p='pengimbasan';
+ $$('.page').forEach(s=>s.classList.toggle('on',s.id===p));
+ $$('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.p===p));
+ const cs=$$('#'+p+' .card');
+ $('#chips').innerHTML=cs.map((c,i)=>`<button data-i="${i}">${c.dataset.t}</button>`).join('');
+ $$('#chips button').forEach(b=>b.onclick=()=>cs[b.dataset.i].scrollIntoView({behavior:'smooth',block:'start'}));
+ window.scrollTo(0,0);
+}
+$$('.tabs button').forEach(b=>b.onclick=()=>{location.hash=b.dataset.p});
+addEventListener('hashchange',()=>go(location.hash.slice(1)));
+go(location.hash.slice(1));
+/* sorot chip aktif saat scroll */
+addEventListener('scroll',()=>{const cs=$$('.page.on .card'),ch=$$('#chips button');let a=0;cs.forEach((c,i)=>{if(c.getBoundingClientRect().top<180)a=i});ch.forEach((b,i)=>b.classList.toggle('on',i===a))},{passive:true});
+</script>
+</body>
+</html>
